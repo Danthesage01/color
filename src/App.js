@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useState } from 'react'
+import Color from './Color'
+const App = () => {
+  const [color, setColor ] = useState(null)
+  const getColor = (value)=>{
+      setColor(value)
+  }
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <main>
+      <section>
+      <div className='color-wrap' style={{ backgroundColor: `${color ? color : null}`, color: `${color === "white" ? "#222" : "#fff"}`, borderColor: `${color ? color : "blue"}` }}>{color}</div>
+      <Color getColor={getColor} />
+      </section>
+    </main>
+  )
 }
 
-export default App;
+export default App
